@@ -1,6 +1,5 @@
 body {
      font-family:Arial, Sans-Serif;
-	 background-color:#99FFCC;
 }
 .clearfix:before, .clearfix:after{
      content: "";
@@ -29,13 +28,13 @@ a:hover{
 	  padding-top:30PX;
 	  padding-bottom:100px;
 	}
-	#form{
-background:#FFFFFF;
-     width:auto;
-	 height:auto;
-	 margin-top:1px;
-	 margin-left:1px;
-	 padding-left:350px
+#form{
+    background: none;
+    width: auto;
+    height: auto;
+}
+.align-center {
+  margin: 0 43%;
 }
 .form1{
      width: 700px;
@@ -62,20 +61,33 @@ height:2px;
 
 }
 input[type='submit']{
-     padding: 10px 25px 8px;
-     color: #fff;
-     background-color: #0067ab;
-     text-shadow: rgba(0,0,0,0.24) 0 1px 0;
-     font-size: 16px;
-     box-shadow: rgba(255,255,255,0.24) 0 2px 0 0 inset,#fff 0 1px 0 0;
-     border: 1px solid #0164a5;
-     border-radius: 2px;
-     margin-top: 10px;
-     cursor:pointer;
+     margin: 5% 25%;
+     box-shadow: 0px 10px 14px -7px #6e6e6e;
+     background: linear-gradient(to bottom, #0073a0 5%, #0ca1a9 100%);
+     background-color: #ad728b;
+     border-radius: 8px;
+     display: inline-block;
+     cursor: pointer;
+     color: #ffffff;
+     font-family: Arial;
+     font-size: 15px;
+     font-weight: bold;
+     padding: 13px 32px;
+     text-decoration: none;
+     text-shadow: 0px 1px 0px #3d768a;
 }
 input[type='submit']:hover {
-     background-color: #024978;
+     background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
 }
+
+input[type='submit']:active {
+	position:relative;
+	top:1px;
+}
+
+
+
 
 ul {
   list-style-type: none;
@@ -100,3 +112,7 @@ li a {
 li a:hover {
   background-color: #111111;
 }
+body {
+     background-image: url("https://www.creativefabrica.com/wp-content/uploads/2020/05/08/Abstract-Website-Background-with-Squares-Graphics-4067055-1.jpg") !important;
+}
+    

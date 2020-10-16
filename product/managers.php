@@ -41,11 +41,12 @@ li a:hover {
 <body>
 <p align="left">Welcome <?php echo $_SESSION['Usernames']; ?>!||USER ID:<?php echo $_SESSION['UserID']; ?></p>
 <ul>
-<!-- <li><a href="calendermanager.php">THE CALENDAR </a></li> -->
+<li><a href="calendermanager.php">THE CALENDAR </a></li>
   <li><a href="stafflist.php">LIST OF STAFFS </a></li>
   <li><a href="approveleave.php">STAFFS LEAVE REQUESTS </a></li>
-  <!-- <li><a href="sendstaffnotifications.php">SEND LEAVE NOTIFICATIONS </a></li>
-  <li><a href= "index.php"> ADMIN ACCOUNT</a><li> -->
+  <li><a href="updatestaffspassword.php">UPDATE PASSWORD</a></li>
+  <li><a href="sendstaffnotifications.php">SEND LEAVE NOTIFICATIONS </a></li>
+  <li><a href= "index.php"> ADMIN ACCOUNT</a><li>
   <li><a href="logout.php">Logout</a></li>
 </ul>
 <div >

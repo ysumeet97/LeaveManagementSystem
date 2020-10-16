@@ -166,7 +166,7 @@ input[type=submit] {
 <title>Registration</title>
 </head>
 <body>
-<p align="left">Welcome <?php echo $_SESSION['Usernames']; ?>!||USER ID:<?php echo $_SESSION['UserID']; ?>!||Your Leave balance is:<?php echo $_SESSION['LeaveBalance']; ?></p>
+<p align="left">Welcome <?php echo $_SESSION['Usernames']; ?>!||USER ID:<?php echo $_SESSION['UserID']; ?>||Your Leave balance is:<?php echo $_SESSION['LeaveBalance']; ?></p>
 <ul>
   <li><a href="staffs.php">HOME</a></li>
   <li><a href="logout.php">Logout</a></li>
@@ -193,12 +193,12 @@ input[type=submit] {
             </tr>
             <tr> 
                 <td>Password:</td>
-                <td><input type="text" name="Passwords1" value="<?php echo $Passwords;?>" disabled="true" required/></td>		
+                <td><input type="password" name="Passwords1" value="<?php echo $Passwords;?>" disabled="true" required/></td>		
             </tr>
 			<tr> 
             <td>New Password: </td>
                 <td>
-<input type="text" name="Passwords" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more characters" required/>
+<input type="password" name="Passwords" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more characters" required/>
 			  
 				</td>    
             </tr>

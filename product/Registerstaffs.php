@@ -69,12 +69,14 @@ echo '</script>';
  }
  else
  {
- echo '<script type="text/javascript">alert("User Registration Details submitted succesfully!");</script>';
+
   //**mysql_query("insert into patients(Names,PatientID,Email,Telphone,Diagnosis) values('$Names','$PatientID','$Email','$Telphone','$Diagnosis')");
   
   //header("refresh:2;url=Location :login.php"); // really should be a fully qualified URI
   $result = mysqli_query($con, "INSERT INTO users(FullName,Telphone,Email,Status,User_Type,Usernames,Passwords,leavebalance) VALUES('$FullName','$Telphone','$Email','$Status','$User_Type','$Usernames','$Passwords','$leavebalance')");
-header("Location: Registerstaffs.php");
+  echo "<script type='text/javascript'>alert('User Registration Details submitted succesfully!.');
+	window.location.href='Registerstaffs.php';
+	</script>";
  
  }	
     }
@@ -93,6 +95,10 @@ $result = mysqli_query($con, "SELECT * FROM users ORDER BY UserID DESC"); // usi
 <head>
 <link href="style.css" rel="stylesheet">
 <style>
+body
+{
+background-color:#FFFFCC;
+}
 ul {
   list-style-type: none;
   margin: 0;
@@ -182,7 +188,7 @@ input[type=submit] {
 <meta charset="utf-8">
 <title>Registration</title>
 </head>
-<body style="background-color:#99FFCC;">
+<body>
 <p align="left">Welcome <?php echo $_SESSION['Usernames']; ?>!</p>
 <ul>
   <li><a href="index.php">HOME</a></li>
@@ -195,21 +201,21 @@ input[type=submit] {
 
 <h1 align="center">EMPLOYEES LEAVE  MANAGEMENT SYSTEM</h1>
 <h2 align="center">Register new staffs</h2>
-<div id="form" style="padding-left:100px">
+<div style="padding-left:100px">
 <form action="Registerstaffs.php" method="post" name="form1">
-        <table width="98%" border="0" style="padding-left:-100px;">
+        <table border="0" style="padding-left:-100px;">
 		
             <tr> 
-                <td width="15%">Full Name:</td>
-              <td width="31%"><input type="text" name="FullName" required/></td>
-				                <td width="18%">Status(active/inactive):</td>
-              <td width="36%">
+                <td width="9%">Full Name:</td>
+              <td width="22%"><input type="text" name="FullName" required/></td>
+				                <td width="20%">Status(active/inactive):</td>
+              <td width="27%">
 			  <select name="Status">
 				<option value="active">Active</option>
 				<option value="inactive">In-active</option>
 			  </select>
 			  </td>
-			  <td></td>
+			  <td width="22%"></td>
             </tr>
             <tr> 
                 <td>Email:</td>
@@ -225,7 +231,7 @@ input[type=submit] {
 				
 				</td>
 		                <td>Password:</td>
-                <td><input type="text" name="Passwords" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more characters" required/></td>	
+                <td><input type="Password" name="Passwords" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more characters" required/></td>	
 				<td></td>	
             </tr>
 			<tr> 
@@ -259,7 +265,7 @@ input[type=submit] {
 			<td width="7%">Status</td>
 			<td width="10%">User_Type</td>
 			<td width="11%">Usernames</td>
-			<td width="11%">Passwords</td>
+			<!-- <td width="11%">Passwords</td> -->
 			<td width="12%">Leave Balance</td>
 			<td width="25%">Update</td>
         </tr>
@@ -273,7 +279,7 @@ input[type=submit] {
 			echo "<td>".$res['Status']."</td>";
             echo "<td>".$res['User_Type']."</td>";
             echo "<td>".$res['Usernames']."</td>";
-			 echo "<td>".$res['Passwords']."</td>";
+			//  echo "<td>".$res['Passwords']."</td>";
 			 echo "<td>".$res['LeaveBalance']."</td>";
             echo "<td><a href=\"updatestaffs.php?UserID=$res[UserID]\">Edit/Leave Balance</a> | <a href=\"delete.php?UserID=$res[UserID]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";        
         }

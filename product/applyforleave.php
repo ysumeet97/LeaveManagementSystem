@@ -281,7 +281,7 @@ li a:hover {
             
             echo "<td>".$res['Comments']."</td>";
 			 echo "<td>".$res['Fullname']."</td>";
-            echo "<td><a href=\"deleteleave.php?LeaveID=$res[LeaveID]\" onClick=\"return confirm('Are you sure you want to delete leave application?')\">Cancel</a></td>";        
+            echo "<td><a href=\"deleteleave.php?LeaveID=".$res['LeaveID']."&User=".$res['Fullname']."\". onClick=\"return confirm('Are you sure you want to delete leave application?')\">Cancel</a></td>";        
         }
         ?>
   </table>

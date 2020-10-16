@@ -44,13 +44,10 @@ li a:hover {
 <body>
 <p align="left">Welcome <?php echo $_SESSION['Usernames']; ?>!||USER ID:<?php echo $_SESSION['UserID']; ?>||Your Leave balance is:<?php echo $_SESSION['LeaveBalance']; ?></p>
 <ul>
-  <!-- <li><a href="calenderstaffs.php">THE CALENDAR </a></li> -->
-  <!-- <li><a href="Receivedstaffnotifications.php">ANNUAL LEAVE NOTIFICATIONS </a></li> -->
+  <li><a href="calenderstaffs.php">THE CALENDAR </a></li>
+  <li><a href="Receivedstaffnotifications.php">ANNUAL LEAVE NOTIFICATIONS </a></li>
   <li><a href="applyforleave.php">APPLY FOR LEAVE </a></li>
-  <!-- 
-    
-  
-   -->
+  <li><a href="updatestaffspassword.php">UPDATE PASSWORD</a></li>
   <li><a href="logout.php">Logout</a></li>
 </ul>
 <div >

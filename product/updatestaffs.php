@@ -164,7 +164,7 @@ li a:hover {
             <td>User Type:</td>
                 <td>
 				<select name="User_Type">
-				<option value="<?php echo $User_Type;?>"><?php echo $User_Type;?></option>
+				<option value="<?php echo $User_Type;?>" disabled selected>Current -> <?php echo $User_Type;?></option>
 				<option value="admin">Admin</option>
 				<option value="staff">Staff</option>
 				<option value="manager">Manager</option>
