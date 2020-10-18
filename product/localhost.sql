@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 19, 2020 at 02:33 PM
+-- Generation Time: Sep 30, 2020 at 11:30 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -33,20 +33,67 @@ CREATE TABLE IF NOT EXISTS `leaveapplications` (
   `Startdate` varchar(40) NOT NULL,
   `Enddate` varchar(40) NOT NULL,
   `ApprovalStatus` varchar(40) NOT NULL,
-  `Expirelystatus` varchar(40) NOT NULL,
   `Comments` varchar(40) NOT NULL,
   `Fullname` varchar(40) NOT NULL,
   `UserID` int(11) NOT NULL,
   PRIMARY KEY (`LeaveID`),
   KEY `UserID` (`UserID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `leaveapplications`
 --
 
-INSERT INTO `leaveapplications` (`LeaveID`, `Description`, `Startdate`, `Enddate`, `ApprovalStatus`, `Expirelystatus`, `Comments`, `Fullname`, `UserID`) VALUES
-(7, 'carerâ€™s leave', '20-9-2020', '23-9-2020', 'accepted', 'inprogress', 'approved', 'SAM', 9);
+INSERT INTO `leaveapplications` (`LeaveID`, `Description`, `Startdate`, `Enddate`, `ApprovalStatus`, `Comments`, `Fullname`, `UserID`) VALUES
+(7, 'carerâ€™s leave', '2020-9-20', '2020-9-23', 'accepted', 'approved', 'SAM', 9),
+(9, 'annual leave', '2020-09-21', '2020-09-26', 'pending', 'NONE', 'sam', 9),
+(10, 'carerâ€™s leave', '2020-09-28', '2020-09-30', 'pending', 'approved', 'dennis', 11),
+(12, 'carerâ€™s leave', '2020-09-29', '2020-09-30', 'PENDING', 'NONE', 'Erick', 13);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `leavenotifications`
+--
+
+CREATE TABLE IF NOT EXISTS `leavenotifications` (
+  `NoteID` int(11) NOT NULL AUTO_INCREMENT,
+  `Dates` varchar(20) NOT NULL,
+  `Message` varchar(100) NOT NULL,
+  `UserID` int(11) NOT NULL,
+  PRIMARY KEY (`NoteID`),
+  KEY `UserID` (`UserID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `leavenotifications`
+--
+
+INSERT INTO `leavenotifications` (`NoteID`, `Dates`, `Message`, `UserID`) VALUES
+(8, '2020-09-30', 'take annual leave', 11),
+(9, '2020-09-30', 'apply annual leave', 13);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `publicholidays`
+--
+
+CREATE TABLE IF NOT EXISTS `publicholidays` (
+  `HolidayID` int(20) NOT NULL AUTO_INCREMENT,
+  `HolidayName` varchar(50) NOT NULL,
+  `Dates` varchar(20) NOT NULL,
+  PRIMARY KEY (`HolidayID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `publicholidays`
+--
+
+INSERT INTO `publicholidays` (`HolidayID`, `HolidayName`, `Dates`) VALUES
+(3, 'CHRISTMAS', '25-12-2020'),
+(4, 'END YEAR', '2020-12-31'),
+(5, 'New year', '2020-01-01');
 
 -- --------------------------------------------------------
 
@@ -65,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `Passwords` varchar(40) NOT NULL,
   `LeaveBalance` int(20) NOT NULL,
   PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `users`
@@ -73,8 +120,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`UserID`, `FullName`, `Telphone`, `Email`, `Status`, `User_Type`, `Usernames`, `Passwords`, `LeaveBalance`) VALUES
 (1, 'SUSAN', '+546565656', 'susan45@gmail.com', 'active', 'admin', 'admin', 'admin', 4),
-(9, 'samuel', '+454656666', 'sam12@gmail.com', 'active', 'staff', 'sam', 'Samuel1234', 5),
-(10, 'Titus', '+54565656565', 'Titus@gmail.com', 'active', 'manager', 'Titus', 'Titus12345', 2);
+(9, 'samuel', '+454656666', 'sam12@gmail.com', 'active', 'staff', 'sam', 'Samuel1234', 4),
+(10, 'Titus', '+54565656565', 'Titus@gmail.com', 'active', 'manager', 'Titus', 'Titus12345', 2),
+(11, 'dennis', '+5456566', 'den1@gmail.com', 'active', 'staff', 'dennis', 'Dennis12340', 1),
+(12, 'Isaac', '+565655656', 'isa@gmail.com', 'active', 'manager', 'isaac', 'Isaac123456', 6),
+(13, 'Erick', '+546565654', 'er1@gmail.com', 'active', 'staff', 'Erick', 'Erick12345', 5);
 
 --
 -- Constraints for dumped tables
@@ -85,3 +135,9 @@ INSERT INTO `users` (`UserID`, `FullName`, `Telphone`, `Email`, `Status`, `User_
 --
 ALTER TABLE `leaveapplications`
   ADD CONSTRAINT `leaveapplications_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
+
+--
+-- Constraints for table `leavenotifications`
+--
+ALTER TABLE `leavenotifications`
+  ADD CONSTRAINT `leavenotifications_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
